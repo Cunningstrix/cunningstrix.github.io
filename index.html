@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="simple.min.css">
+    <title>Identif' game</title>
+    <script>
+
+        var TANKS = ['T55', 'T62', 'T64', 'T72', 'T80', 'T90', 'BMPT', 'BMPT2', 'BMPT72', 'M1ABRAMS', 'LEOPARD', 'CHALLENGER2', 'ARIETE', 'MAGACH', 'SABRA', 'BMP1', 'BMP2', 'BMP3', 'BMD1', 'BMD2', 'BMD3', 'BMD4', 'DRAGON', 'BRDM2', 'BRDM2RKH', 'BRM1', 'BRM3', 'SCIMITAR', 'WIESEL', 'FENNEK', 'JACKAL', 'BTR60', 'BTR70', 'BTR80', 'BTR80A', 'FUCHS', 'BMR600', 'STRYKER', 'M113', 'MTLB', 'HUMMER', 'COBRA', 'EAGLEIV', 'VEC', 'CENTORO', 'CENTOROII', 'PTL-02', 'IVECO', 'VAMTAC', "MARDER", "PUMA", "BRADLEY", "WARRIOR", "PIZARRO", "ULAN", "CV90", "AH1-COBRA", "APACHE", "MANGUSTA", "MI24", "MI28", "HOKUM", "XA 360", "XA 180", "PIRANHA", "BOXER", "WZ551", "TYPE85", "AAV7", "VIKING", "LIGHTGUN", "122D30", "130M46", "2A65", "FH70", "M777", "2S1", "2S3", "2S5", "2S7", "AS90", "PZH2000", "M109", "2S19", "2S35", "MDK2", "PZM", "BAT2", "M9ACE", "DACHS", "GMZ", "IMR2", "MTU72", "WOLWERINE", "PTS2", "PMM2", "TMM3", "TMM6", "AMPHIBOUS RIG", "RIBBON BRIDGE", "T64 BULAT", "T72 B3", "T80 BVM", "ROSOMAK", "FRECCIA", "DARDO", "ZBD05", "LAV25", "NAMER", "ZBD04", "T90MS", "ZTD05", "ARJUN", "ZU23.2", "GECKO", "ZSU23.4", "GADFLY", "GAINFULL", "GROUSE", "ZTZ96", "ZTZ99", "TYPE10", "K1", "BLACKPANTHER", "MERKAVAIII", "MERKAVAIII BAZ", "MERKAVAIV", "SPG9", "100T12", "M40A1", "M1134ATGM", "2A45", "BRDM2 AT5", "BMP3 KHRIZANTHEMA", "BMP3 KORNET", "SCHTURM", "BMO-T"]
+
+        function startGame() {
+            var tankslist = document.getElementById('tankslist');
+            // Populate Navbar.
+            for (tank of TANKS) {
+                let li = document.createElement('li');
+                let input = document.createElement('input');
+                input.name = tank;
+                input.type = "checkbox";
+                input.id = tank;
+
+                let label = document.createElement('label');
+                label.setAttribute('for', tank);
+                label.innerHTML = '&nbsp;' + tank;
+                input.id = tank;
+
+                li.appendChild(input);
+                li.appendChild(label);
+
+                tankslist.appendChild(li);
+            }
+        }
+
+        function loadImage() {
+            let checkedtanks = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(q => q.id);
+            let tank = checkedtanks[Math.floor(Math.random() * checkedtanks.length)];
+            (typeof tank === 'undefined') && alert("Pas de véhicule coché");
+            document.getElementById('test').src = tank + "/" + tank + "-" + Math.floor(Math.random() * 11) + ".jpg";
+            document.getElementById('test').name = tank;
+        }
+
+        function check_ans() {
+            if (document.getElementById("guess").value.toUpperCase() === document.getElementById('test').name) {
+                alert("Bonne réponse");
+                document.getElementById("guess").value = "";
+                loadImage();
+            }
+            else {
+                alert("Mauvaise réponse");
+                document.getElementById("guess").value = "";
+            }
+        }
+
+        function give_ans(){
+            let ans = document.getElementById('test').name;
+            alert("Le véhicule était : " + ans);
+            loadImage();
+        }
+    </script>
+    <style>
+        /* TODO : move this to another file, make it clean :) */
+        /* body {
+          font-family: "Lato", sans-serif;
+        } */
+
+        .sidenav label {
+            font-size: medium;
+        }
+
+        .sidenav label:hover {
+            font-size: large;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: var(--accent-bg);
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body onload="startGame()">
+    <header>
+        <h1>Identif' game</h1>
+        <span style="font-size:20px;cursor:pointer" onclick="openNav()">☝️ CHOISIR VEHICULES</span>
+        <br>
+        <span style="font-size:20px;cursor:pointer" onclick="loadImage()">▶️ JOUER !</span>
+    </header>
+
+    <!-- navbar -->
+    <div id="mySidenav" class="sidenav">
+        <button style="display:block;margin-left: auto;margin-right: auto;"
+            onclick="document.querySelectorAll('input[type=checkbox]').forEach(q => q.checked = false)">Tout
+            Décocher</button>
+        <button style="display:block;margin-left: auto;margin-right: auto;"
+            onclick="document.querySelectorAll('input[type=checkbox]').forEach(q => q.checked = true)">Tout
+            cocher</button>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <ul id="tankslist">
+        </ul>
+    </div>
+    <!-- navbar -->
+    <main style=" text-align: center;">
+        <img id="test" style="max-width: 600px;"></img>
+        <br>
+        <input type="text" id="guess" style="height: 30px;">
+        <button id="submit" onclick="check_ans()">VALIDER</button>
+        <button onclick="give_ans()">❔</button>
+
+    </main>
+
+    <footer>
+        <p>Made with ❤️ by MDL Mion & MDL Locqué</p>
+    </footer>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "230px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        var guessingInput = document.getElementById("guess");
+
+        guessingInput.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("submit").click();
+            }
+        });
+    </script>
+</body>
+
+</html>

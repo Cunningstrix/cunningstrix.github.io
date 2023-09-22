@@ -1,0 +1,25 @@
+#ctnImg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#formulaire input{
+	width: 95%
+}
+#formulaire button{
+	width: 4%
+}
+#test{
+	height: 900px;
+	margin: 2px;
+}
+header{
+	height: 90px; 
+	background-color: grey;
+	display: flex;
+    overflow: auto;
+    overflow-y: hidden;
+}
+header div{
+	padding: 10px;
+}
