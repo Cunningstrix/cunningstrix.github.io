@@ -7,62 +7,57 @@
     <script type="text/javascript" src="scripts/script.js"></script>
     <link rel="stylesheet" href="style/simple.min.css">
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/main.css">
     <title>Identif' game</title>
 </head>
 
 <body onload="startGame()">
     <header>
         <h1>Identif' game</h1>
-        <span style="font-size:20px;cursor:pointer" onclick="openNav()">☝️ CHOISIR VEHICULES</span>
-        <br>
-        <span style="font-size:20px;cursor:pointer" onclick="loadImage()">▶️ JOUER !</span>
-        <button style="display:block;margin-left: auto;margin-right: auto;"
-        onclick="auto_check()">Véhicules FSE RIM</button>
+        <button onclick="openNav()">☝️ LISTE VEHICULES</button>
+        <button onclick="loadImage()">▶️ JOUER !</button>
+        <button onclick="auto_check()">VEHICULES FSE RIM</button>
     </header>
 
     <!-- navbar -->
     <div id="mySidenav" class="sidenav">
         <button style="display:block;margin-left: auto;margin-right: auto;"
-            onclick="document.querySelectorAll('input[type=checkbox]').forEach(q => q.checked = false)">Tout
+            onclick="uncheck_all()">Tout
             Décocher</button>
         <button style="display:block;margin-left: auto;margin-right: auto;"
-            onclick="document.querySelectorAll('input[type=checkbox]').forEach(q => q.checked = true)">Tout
+            onclick="check_all()">Tout
             cocher</button>
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <ul id="tankslist">
         </ul>
     </div>
     <!-- navbar -->
-    <main style=" text-align: center;">
-        <img id="test" style="max-width: 600px;"></img>
+    <main>
+        <div class="card">
+            <div class="card__inner">
+                <div class="card__face card__face--front">
+                    <img id="test"></img>
+                </div>
+                <div class="card__face card__face--back">
+                    <div class="card__content">
+                        <div class="card__header">
+                            <h2>Réponse</h2>
+                        </div>
+                        <div class="card__body">
+                            <h3 id="answer"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <br>
-        <input type="text" id="guess" style="height: 30px;">
-        <button id="submit" onclick="check_ans()">VALIDER</button>
-        <button onclick="give_ans()">❔</button>
-
+        <button onclick="loadImage()">SUIVANT ⏩</button> 
     </main>
-
+	<script src="scripts/main.js"></script>
+	<script src="scripts/nav.js"></script>
     <footer>
         <p>Made with ❤️ by mimi</p>
     </footer>
-    <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "230px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-        }
-
-        var guessingInput = document.getElementById("guess");
-
-        guessingInput.addEventListener("keypress", function (event) {
-            if (event.key === "Enter") {
-                event.preventDefault();
-                document.getElementById("submit").click();
-            }
-        });
-    </script>
 </body>
 
 </html>
