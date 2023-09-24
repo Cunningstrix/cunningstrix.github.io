@@ -27,9 +27,17 @@ function loadImage() {
     let checkedtanks = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(q => q.id);
     let tank = checkedtanks[Math.floor(Math.random() * checkedtanks.length)];
     (typeof tank === 'undefined') && alert("Pas de véhicule coché");
-    document.getElementById('test').src = 'vehicles/' + tank + "/" + tank + "-" + Math.floor(Math.random() * 11) + ".jpg";
-    document.getElementById('test').name = tank;
-    document.getElementById('answer').innerHTML = tank;
+
+    if(document.getElementsByClassName('card__inner')[0].classList.contains('is-flipped')){
+        document.querySelector(".card__inner").classList.toggle('is-flipped');
+    }
+
+    setTimeout(() => {
+        document.getElementById('test').src = 'vehicles/' + tank + "/" + tank + "-" + Math.floor(Math.random() * 11) + ".jpg";
+        document.getElementById('test').name = tank;
+        document.getElementById('answer').innerHTML = tank;
+    }, 300);
+
 }
 
 function check_ans() {
