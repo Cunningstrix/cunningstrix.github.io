@@ -1,10 +1,9 @@
 var TANKS = [];
-var BASEURL = "http://localhost:3000";
 
 function startGame() {
     var tankslist = document.getElementById('tankslist');
 
-    axios.get(`${BASEURL}/api/subdirectories`)
+    axios.get(`${window.config.apiUrl}/api/subdirectories`)
         .then(response => {
             TANKS = response.data.subdirectories;
 
@@ -45,7 +44,7 @@ function loadImage() {
         const imageTag = document.getElementById('test');
 
         // Axios GET request to fetch the image
-        axios.get(`${BASEURL}/api/random-image/${tank}`, { responseType: 'arraybuffer' })
+        axios.get(`${window.config.apiUrl}/api/random-image/${tank}`, { responseType: 'arraybuffer' })
             .then(response => {
                 // Convert the response data to a base64 string
                 const base64Image = btoa(
