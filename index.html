@@ -5,18 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="text/javascript" src="scripts/script.js"></script>
-    <script type="text/javascript" src="scripts/config.js"></script>
     <link rel="stylesheet" href="style/simple.min.css">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/main.css">
-    <title>Identif' game</title>
+    <title>Identif' game v2 !</title>
 </head>
 
 <body onload="startGame()">
     <header>
-        <h1>Identif' game</h1>
-        <button onclick="openNav()">☝️ LISTE VEHICULES</button>
+        <h1>Identif' game v2 !</h1>
+        <button id ="openButton" onclick="openNav()">☰ LISTE VEHICULES</button>
         <button onclick="loadImage()">▶️ JOUER !</button>
     </header>
     <div id="mySidenav" class="sidenav">
@@ -31,7 +29,7 @@
         </ul>
     </div>
     <!-- navbar -->
-    <main>
+    <main id="main">
         <div class="card">
             <div class="card__inner">
                 <div class="card__face card__face--front">
@@ -50,10 +48,12 @@
             </div>
         </div>
         <br>
-        <button style="width: 100%; background-color: green;" onclick="loadImage()">OK</button>
+        <button  id="okbutton" onclick="loadImage()">OK</button>
     </main>
 	<script src="scripts/main.js"></script>
 	<script src="scripts/nav.js"></script>
+    <script type="text/javascript" src="scripts/script.js"></script>
+    <script type="text/javascript" src="scripts/config.js"></script>
     <footer>
         <p>Made with ❤️ by mimi</p>
     </footer>
