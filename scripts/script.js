@@ -1,4 +1,3 @@
-
 var TANKS = [];
 var BASEURL = "http://localhost:3000";
 
