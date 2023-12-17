@@ -9,13 +9,17 @@
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/main.css">
     <title>Identif' game v2 !</title>
+    <link rel="icon" type="image/x-icon" href="./img/logo.ico">
 </head>
 
 <body onload="startGame()">
     <header>
-        <h1>Identif' game v2 !</h1>
+        <div style="display: flex;">
+            <h1>Identif' game v2 !</h1>
+        </div>
+
         <button id ="openButton" onclick="openNav()">☰ LISTE VEHICULES</button>
-        <button onclick="loadImage()">▶️ JOUER !</button>
+        <button onclick="loadImage()">▶ JOUER !</button>
     </header>
     <div id="mySidenav" class="sidenav">
         <button style="display:block;margin-left: auto;margin-right: auto;"
@@ -33,7 +37,7 @@
         <div class="card">
             <div class="card__inner">
                 <div class="card__face card__face--front">
-                    <img id="test"></img>
+                    <img id="test" src="./img/logo.png"></img>
                 </div>
                 <div class="card__face card__face--back">
                     <div class="card__content">
@@ -54,6 +58,7 @@
 	<script src="scripts/nav.js"></script>
     <script type="text/javascript" src="scripts/script.js"></script>
     <script type="text/javascript" src="scripts/config.js"></script>
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="maximemn" data-description="Support me on Buy me a coffee!" data-message="Merci d'utiliser IdentifGame, l'application est maintenant passée à un niveau supérieur et me demande environ 7 euros par mois, si vous souhaitez me soutenir c'est par ici !" data-color="#40DCA5" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
     <footer>
         <p>Made with ❤️ by mimi</p>
     </footer>
