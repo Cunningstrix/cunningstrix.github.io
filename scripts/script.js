@@ -1,5 +1,7 @@
 var TANKS = [];
 
+var FGE = ["T55","T62","T64","T72", "T80","T90","BMPT","BMPT2","BMPT72"];
+
 function startGame() {
     var tankslist = document.getElementById('tankslist');
 
@@ -74,3 +76,11 @@ function check_all() {
 function uncheck_all() {
     document.querySelectorAll('input[type=checkbox]').forEach(q => q.checked = false);
 }
+function startFGE(){
+    document.querySelectorAll('input[type=checkbox]').forEach(q => {
+        // Check if the input element's name matches any element in the array
+        if (FGE.includes(q.name)) {
+            // If it matches, set the checked property to true
+            q.checked = true;
+        }
+    });}
