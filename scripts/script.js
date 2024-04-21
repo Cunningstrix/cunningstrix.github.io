@@ -1,6 +1,10 @@
 var TANKS = [];
 
-var FGE = ["T55","T62","T64","T72", "T80","T90","BMPT","BMPT2","BMPT72"];
+var FGE = ["T55","T62","T64","T72","T80","T90","BMPT","BMPT2","BMPT72",
+            "CHALLENGER2","LEOPARD2","M1ABRAMS","MERKAVAIII","MERKAVAIII BAZ",
+            "MERKAVAIV","TYPE10", "BLACKPANTHER","ZTZ96","ZTZ99","BMP1","BMP2","BMP3",
+            "LECLERC", "VAB","VBCI","VBL","AMX10","JAGUAR","GRIFFON"
+        ];
 
 function startGame() {
     var tankslist = document.getElementById('tankslist');
