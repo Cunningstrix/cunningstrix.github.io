@@ -1,9 +1,7 @@
 var TANKS = [];
 
-var FGE = ["T55","T62","T64","T72","T80","T90","BMPT","BMPT2","BMPT72",
-            "CHALLENGER2","LEOPARD2","M1ABRAMS","MERKAVAIII","MERKAVAIII BAZ",
-            "MERKAVAIV","TYPE10", "BLACKPANTHER","ZTZ96","ZTZ99","BMP1","BMP2","BMP3",
-            "LECLERC", "VAB","VBCI","VBL","AMX10","JAGUAR","GRIFFON"
+var PRESELECT = ["LECLERC", "VAB","VBCI","VBL","AMX10","JAGUAR","GRIFFON",
+            "BRDM2", "BRM1", "BRM3","SCIMITAR","WIESEL","FENNEK","JACKAL"
         ];
 
 function startGame() {
@@ -80,10 +78,10 @@ function check_all() {
 function uncheck_all() {
     document.querySelectorAll('input[type=checkbox]').forEach(q => q.checked = false);
 }
-function startFGE(){
+function startPRESELECT(){
     document.querySelectorAll('input[type=checkbox]').forEach(q => {
         // Check if the input element's name matches any element in the array
-        if (FGE.includes(q.name)) {
+        if (PRESELECT.includes(q.name)) {
             // If it matches, set the checked property to true
             q.checked = true;
         }
