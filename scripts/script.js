@@ -1,7 +1,9 @@
 var TANKS = [];
 
-var PRESELECT = ["LECLERC", "VAB","VBCI","VBL","AMX10","JAGUAR","GRIFFON",
-            "BRDM2", "BRM1", "BRM3","SCIMITAR","WIESEL","FENNEK","JACKAL"
+var PRESELECT = [
+            "LECLERC", "VAB","VBCI","VBL","AMX10","JAGUAR","GRIFFON", //FR
+            "BRDM2", "BRM1", "BRM3","SCIMITAR","WIESEL","FENNEK","JACKAL", //RECO 1
+            "HUMMER", "COBRA", "EAGLEIV","VEC", "CENTORO","CENTOROII","PTL-02","IVECO", "VAMTAC" //RECO 2
         ];
 
 function startGame() {
