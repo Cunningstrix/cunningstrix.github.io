@@ -3,7 +3,8 @@ var TANKS = [];
 var PRESELECT = [
             "LECLERC", "VAB","VBCI","VBL","AMX10","JAGUAR","GRIFFON", //FR
             "BRDM2", "BRM1", "BRM3","SCIMITAR","WIESEL","FENNEK","JACKAL", //RECO 1
-            "HUMMER", "COBRA", "EAGLEIV","VEC", "CENTORO","CENTOROII","PTL-02","IVECO", "VAMTAC" //RECO 2
+            "HUMMER", "COBRA", "EAGLEIV","VEC", "CENTORO","CENTOROII","PTL-02","IVECO", "VAMTAC", //RECO 2
+            "BTR60","BTR70","BTR80","BTR80A","FUCHS","BMR600","STRYKER","M113","MTLB" //VBTT1
         ];
 
 function startGame() {
