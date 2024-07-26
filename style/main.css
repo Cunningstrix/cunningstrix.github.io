@@ -1,8 +1,9 @@
 :root {
-    --primary: #23CE6B;
+    --primary: #06d6a0;
     --secondary: #272D2D;
     --dark: #212121;
     --light: #F3F3F3;
+    --accent: #118ab2  ;
   }
   
   * {
@@ -128,5 +129,9 @@
 
   button {
     width: 100%;
+    background-color: var(--primary);
+  }
+
+  nav{
     background-color: var(--primary);
   }

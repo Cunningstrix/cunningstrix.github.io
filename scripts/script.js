@@ -10,7 +10,7 @@ var PRESELECT = [
             "M1ABRAMS", "LEOPARD", "CHALLENGER2","ARIETE", "MAGACH", "SABRA", //MBT2
         ];
 
-function startGame() {
+function startGameIdentif() {
     var tankslist = document.getElementById('tankslist');
 
     axios.get(`https://identifgamebackend.onrender.com/api/subdirectories`)
@@ -66,7 +66,6 @@ function loadImage() {
                 imageTag.src = `data:${response.headers['content-type']};base64,${base64Image}`;
                 document.getElementById('answer').name = tank;
                 document.getElementById('answer').innerHTML = tank;
-                //document.getElementById('test').src = `http://localhost:3000/api/random-image/`+tank;
 
             })
             .catch(error => {
@@ -74,6 +73,37 @@ function loadImage() {
             });
 
     }, 300);
+
+}
+
+function loadQuestion(type =''){
+    if(type === 'mmp'){
+        console.log('toto')
+        setTimeout(() => {
+            const imageTag = document.getElementById('test');
+    
+            // Axios GET request to fetch the image
+            axios.get(`http://identifgamebackend.onrender.com/api/mmp`)
+                .then(response => {
+    
+                    document.getElementById('question').name = response.data.question;
+                    document.getElementById('question').innerHTML = response.data.question;
+                    if(response.data.answer.includes("base64")){
+                        const img = document.createElement('img');
+                        img.src = response.data.answer;
+                        document.getElementById('answer').appendChild(img);
+                    }
+                    else{
+                        document.getElementById('answer').innerHTML = response.data.answer;
+                    }
+    
+                })
+                .catch(error => {
+                    console.error('Error fetching image:', error);
+                });
+    
+        }, 300);
+    }
 
 }
 
