@@ -5,7 +5,9 @@ var PRESELECT = [
             "BRDM2", "BRM1", "BRM3","SCIMITAR","WIESEL","FENNEK","JACKAL", //RECO 1
             "HUMMER", "COBRA", "EAGLEIV","VEC", "CENTORO","CENTOROII","PTL-02","IVECO", "VAMTAC", //RECO 2
             "BTR60","BTR70","BTR80","BTR80A","FUCHS","BMR600","STRYKER","M113","MTLB", //VBTT1
-            "XA 180","XA 360","PIRANHA","BOXER","WZ551","TYPE85","AAV7","VIKING" //VBTT2
+            "XA 180","XA 360","PIRANHA","BOXER","WZ551","TYPE85","AAV7","VIKING", //VBTT2
+            "T55", "T62", "T64 BULAT", "T72", "T80","T90","BMPT", "BMPT2", //MBT1
+            "M1ABRAMS", "LEOPARD", "CHALLENGER2","ARIETE", "MAGACH", "SABRA", //MBT2
         ];
 
 function startGame() {
