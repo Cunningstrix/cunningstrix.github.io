@@ -83,7 +83,7 @@ function loadQuestion(type =''){
             const imageTag = document.getElementById('test');
     
             // Axios GET request to fetch the image
-            axios.get(`http://identifgamebackend.onrender.com/api/mmp`)
+            axios.get(`https://identifgamebackend.onrender.com/api/mmp`)
                 .then(response => {
     
                     document.getElementById('question').name = response.data.question;
