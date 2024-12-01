@@ -1,16 +1,25 @@
 function openNav() {
-    document.getElementById("mySidenav").style.width = "230px";
+    var sideNav = document.getElementById("mySidenav");
+    if (sideNav.style.width === "230px") {
+        closeNav();
+    } else {    
+        sideNav.style.width = "230px";
+        document.addEventListener("click", closeNavOutside);
+      }
+
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+    document.removeEventListener("click", closeNavOutside);
 }
 
-var guessingInput = document.getElementById("guess");
+function closeNavOutside(event) {
+    var sideNav = document.getElementById("mySidenav");
+    var mainContent = document.getElementById("main");
+    var openButton = document.getElementById("openButton");
 
-guessingInput.addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        document.getElementById("submit").click();
-    }
-});
+    if (event.target !== openButton && !sideNav.contains(event.target)) {
+        closeNav();
+      }
+  }
