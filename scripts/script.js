@@ -1,15 +1,5 @@
 var TANKS = [];
 
-var PRESELECT = [
-            "LECLERC", "VAB","VBCI","VBL","AMX10","JAGUAR","GRIFFON", //FR
-            "BRDM2", "BRM1", "BRM3","SCIMITAR","WIESEL","FENNEK","JACKAL", //RECO 1
-            "HUMMER", "COBRA", "EAGLEIV","VEC", "CENTORO","CENTOROII","PTL-02","IVECO", "VAMTAC", //RECO 2
-            "BTR60","BTR70","BTR80","BTR80A","FUCHS","BMR600","STRYKER","M113","MTLB", //VBTT1
-            "XA 180","XA 360","PIRANHA","BOXER","WZ551","TYPE85","AAV7","VIKING", //VBTT2
-            "T55", "T62", "T64 BULAT", "T72", "T80","T90","BMPT", "BMPT2", //MBT1
-            "M1ABRAMS", "LEOPARD", "CHALLENGER2","ARIETE", "MAGACH", "SABRA", //MBT2
-        ];
-
 function startGameIdentif() {
     var tankslist = document.getElementById('tankslist');
 
@@ -114,11 +104,3 @@ function check_all() {
 function uncheck_all() {
     document.querySelectorAll('input[type=checkbox]').forEach(q => q.checked = false);
 }
-function startPRESELECT(){
-    document.querySelectorAll('input[type=checkbox]').forEach(q => {
-        // Check if the input element's name matches any element in the array
-        if (PRESELECT.includes(q.name)) {
-            // If it matches, set the checked property to true
-            q.checked = true;
-        }
-    });}
