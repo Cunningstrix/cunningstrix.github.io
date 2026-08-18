@@ -3,7 +3,7 @@ var TANKS = [];
 function startGameIdentif() {
     var tankslist = document.getElementById('tankslist');
 
-    axios.get(`https://identifgamebackend.onrender.com/api/subdirectories`)
+    axios.get(`https://identif-game-backend.onrender.com/api/subdirectories`)
         .then(response => {
             TANKS = response.data.subdirectories;
 
@@ -44,7 +44,7 @@ function loadImage() {
         const imageTag = document.getElementById('test');
 
         // Axios GET request to fetch the image
-        axios.get(`https://identifgamebackend.onrender.com/api/random-image/${tank}`, { responseType: 'arraybuffer' })
+        axios.get(`https://identif-game-backend.onrender.com/api/random-image/${tank}`, { responseType: 'arraybuffer' })
             .then(response => {
                 // Convert the response data to a base64 string
                 const base64Image = btoa(
@@ -63,37 +63,6 @@ function loadImage() {
             });
 
     }, 300);
-
-}
-
-function loadQuestion(type =''){
-    if(type === 'mmp'){
-        console.log('toto')
-        setTimeout(() => {
-            const imageTag = document.getElementById('test');
-    
-            // Axios GET request to fetch the image
-            axios.get(`https://identifgamebackend.onrender.com/api/mmp`)
-                .then(response => {
-    
-                    document.getElementById('question').name = response.data.question;
-                    document.getElementById('question').innerHTML = response.data.question;
-                    if(response.data.answer.includes("base64")){
-                        const img = document.createElement('img');
-                        img.src = response.data.answer;
-                        document.getElementById('answer').appendChild(img);
-                    }
-                    else{
-                        document.getElementById('answer').innerHTML = response.data.answer;
-                    }
-    
-                })
-                .catch(error => {
-                    console.error('Error fetching image:', error);
-                });
-    
-        }, 300);
-    }
 
 }
 
