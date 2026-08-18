@@ -2,7 +2,7 @@ var TANKS = [];
 
 function startGameIdentif() {
 	var tankslist = document.getElementById('tankslist');
-
+	let checkedtanks = JSON.parse(localStorage.getItem("LAST_CHECKED") || "[]");
 	axios.get(`https://identif-game-backend.onrender.com/api/subdirectories`)
 		.then(response => {
 			TANKS = response.data.subdirectories;
@@ -13,6 +13,8 @@ function startGameIdentif() {
 				input.name = tank;
 				input.type = "checkbox";
 				input.id = tank;
+				input.checked = checkedtanks.includes(tank);
+
 
 				let label = document.createElement('label');
 				label.setAttribute('for', tank);
@@ -70,6 +72,11 @@ function loadImage() {
 
 	}, 300);
 
+}
+
+function save_list(){
+	let checkedtanks = Array.from(document.querySelectorAll('input[type=checkbox]:checked')).map(q => q.id);
+	localStorage.setItem("LAST_CHECKED", JSON.stringify(checkedtanks));
 }
 
 
