@@ -1,4 +1,4 @@
 window.config = {
-    apiUrl: 'https://identifgamebackend.onrender.com',
+    apiUrl: 'https://identif-game-backend.onrender.com',
     debugMode: false
   };
